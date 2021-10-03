@@ -21,3 +21,13 @@ class ProgramUser:
         else:
             print("Process Failed")                 # user name & password are not accepted
 
+    def login(self, username, password):
+        with open(f"{username}.txt", "r") as f:  # search for file with this name (need exception if file doesn't exist)
+            details = f.read()                   # reading name & pass
+            self.AccData = details.split("\n")   # using split to get the list back
+            if password == self.AccData[1]:      # remember password at loc 1
+                self.logged = True               # if the password is correct then the flag now true
+            if self.logged:
+                print(f"{username} logged in")
+            else:
+                print("Wrong details")
