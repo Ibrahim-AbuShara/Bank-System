@@ -10,17 +10,22 @@ enter = int(input('chose from 1-4 \n 1-admin \n 2-accountat \n 3-super customer 
 #     # obj
 #     # obj
 #     pass
-# elif enter == 2:
-#     # obj=Accountant
-#     # obj
-#     # obj
-#     pass
+if enter == 2:
+    accountant = Accountant()
+
+    action = int(input('what would you like to do here ?\n 1-Display\n 2- (Remove Account / Creat Account)\n'))
+    if action == 1: 
+        custmer_name = str(input('enter customer name to display it : '))
+        accountant.login(custmer_name)
+    elif action == 2: 
+        accountant.accountAction()
+
 # elif enter in 3:
 #     # obj=Super_Customer
 #     # obj
 #     # obj
 #     pass
-if enter == 4:
+elif enter == 4:
     customer = Customer()
     username = input('Enter Your username')
     password = input('Enter Your Password')
