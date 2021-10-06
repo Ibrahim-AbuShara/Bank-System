@@ -5,12 +5,17 @@ from customers import Customer
 from super_customer import Super_Customer
 
 enter = int(input('chose from 1-4 \n 1-admin \n 2-accountat \n 3-super customer \n 4-customer \n > '))
-# if enter == 1:
-#     # obj=Admin
-#     # obj
-#     # obj
+if enter == 1:
+
+    admin=Admin()
+    username = input('Enter Your Username : ')
+    password = input('Enter Your Password : ')
+    admin.login(username, password)
+
+
+
 #     pass
-if enter == 2:
+elif enter == 2:
     accountant = Accountant()
 
     action = int(input('what would you like to do here ?\n 1-Display\n 2- (Remove Account / Creat Account)\n'))
