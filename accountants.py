@@ -9,7 +9,7 @@ class Accountant(ProgramUser):
       super().__init__()  # inherit from Program user
    
    #can acss all customers and desplay it ONLY WITH USER NAME
-   def login(self, user_name):
+   def desplay(self, user_name):
       try:
          with open(f"{user_name}.txt", "r") as f:  # search for file with this name (exception if file doesn't exist)
             details = f.read()                   # reading name & pass & role

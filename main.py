@@ -16,7 +16,7 @@ if enter == 1:
     if choice == 1:
         Accountantname = input('Enter Accountant Username : ')
         Accountantpass = input('Enter Accountant Password : ')
-        admin.create(Accountantname, password)
+        admin.create(Accountantname, Accountantpass)
 
     elif choice == 2:
         admin.display()
@@ -32,11 +32,14 @@ if enter == 1:
 #     pass
 elif enter == 2:
     accountant = Accountant()
+    username = input('Enter Your Username : ')
+    password = input('Enter Your Password : ')
+    accountant.login(username, password)
 
     action = int(input('what would you like to do here ?\n 1-Display\n 2- (Remove Account / Creat Account)\n'))
     if action == 1: 
         custmer_name = str(input('enter customer name to display it : '))
-        accountant.login(custmer_name)
+        accountant.desplay(custmer_name)
     elif action == 2: 
         accountant.accountAction()
 
@@ -47,12 +50,12 @@ elif enter == 2:
 #     pass
 elif enter == 4:
     customer = Customer()
-    username = input('Enter Your username')
-    password = input('Enter Your Password')
+    username = input('Enter Your username: ')
+    password = input('Enter Your Password: ')
     customer.login(username, password)
     select = int(input('choose from 1-3 \n 1-Deposit \n 2-Withdraw \n 3-Show Balance \n'))
     if select == 1:
-        deposit = int(input("Write The Deposit Amount Please : "))
+        deposit = float(input("Write The Deposit Amount Please : "))
         customer.deposit_amount(deposit)
         customer.show_balance()
     elif select == 2:

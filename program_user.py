@@ -35,3 +35,4 @@ class ProgramUser:
             print(f"{username} logged in as {self.AccData[2]}") # remember role at loc 2
         else:
             print("Wrong details")
+            exit()
