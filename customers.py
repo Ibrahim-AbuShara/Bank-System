@@ -6,13 +6,13 @@ class Customer(ProgramUser):
     def __init__(self):
         super().__init__()  # inherit from Program user
         self.balance = 0  # put balance 0 on new acc
-        self.AccData = []  # list to access username in the class [0] = username, [1] = password, [2] = balance
+        self.AccData = []  # list to access username in the class [0] = username, [1] = password, [2] = role,
+        # [3] = balance
         self.logged = False
 
-    # # overrider Reg Method to add balance
-    # def register(self, username, password, role):
-    def login(self, username, password):
-        super().login(username, password)  # inherit the register func from ProgramUser
+    #  overrider Reg Method to add balance
+    def register(self, username, password, role):
+        super().register(username, password, role)  # inherit the register func from ProgramUser
         self.AccData = [username, password, self.balance]  # put data in AccData to access it later
         with open(f"{username}.txt", "a") as f:  # append the balance variable when the user register
             f.write(f"{self.balance}\n")
@@ -30,10 +30,10 @@ class Customer(ProgramUser):
     # def cash withdraw--> taxes 15%
     def withdraw_amount(self, amount):  # withdraw func
         if self.logged:  # user must login before access the
-            self.AccData[2] = int(float(self.AccData[2]))  # AccData[2] = balance from file
-            if self.AccData[2] >= (15/100)*amount + amount:
-                self.AccData[2] -= (15 / 100) * amount + amount
-                self.modify_line(f"{self.AccData[0]}.txt", 3, str(self.AccData[2]))  # use modify_line function
+            self.AccData[3] = int(float(self.AccData[3]))  # AccData[2] = balance from file
+            if self.AccData[3] >= (15/100)*amount + amount:
+                self.AccData[3] -= (15 / 100) * amount + amount
+                self.modify_line(f"{self.AccData[0]}.txt", 3, str(self.AccData[3]))  # use modify_line function
                 print("\n You Withdrew:", amount)
             else:
                 print("\n Your Balance Is Less Than Withdraw ")
@@ -42,10 +42,10 @@ class Customer(ProgramUser):
 
     # deposit money
     def deposit_amount(self, amount):  # deposit func
-        self.AccData[2] = int(float(self.AccData[2]))
+        self.AccData[3] = int(float(self.AccData[3]))
         if self.logged:
-            self.AccData[2] += amount
-            self.modify_line(f"{self.AccData[0]}.txt", 3, str(self.AccData[2]))  # use modify_line function
+            self.AccData[3] += amount
+            self.modify_line(f"{self.AccData[0]}.txt", 3, str(self.AccData[3]))  # use modify_line function
             print("\n Amount Deposited: ", amount)
         else:
             print("You Must Login First")
@@ -53,6 +53,6 @@ class Customer(ProgramUser):
     # def display balance
     def show_balance(self):  # function to display the balance
         if self.logged:
-            print(f"Welcome {self.AccData[0]} Your Balance is : ", str(self.AccData[2]))
+            print(f"Welcome {self.AccData[0]} Your Balance is : ", str(self.AccData[3]))
         else:
             print("You Must Login First")

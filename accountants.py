@@ -7,7 +7,7 @@ class Accountant(ProgramUser):
    #ovride 'Id' in __init
    def __init__(self): 
       super().__init__()  # inherit from Program user
-   
+      self.balance = 0
    #can acss all customers and desplay it ONLY WITH USER NAME
    def desplay(self, user_name):
       try:
@@ -30,7 +30,9 @@ class Accountant(ProgramUser):
          acc_name = str(input('Enter Account Name : '))
          password = str(input('Enter Password : '))
          role = str(input('Enter Role : '))
-         super().register(acc_name,password,role)
+         super().register(acc_name, password, role)
+         with open(f"{acc_name}.txt", "a") as f:
+            f.write('0' + "\n")
       
       elif choise == 'remove':
          username = str(input('enter customer name to get his ass: '))
