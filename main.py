@@ -43,11 +43,30 @@ elif enter == 2:
     elif action == 2: 
         accountant.accountAction()
 
-# elif enter in 3:
-#     # obj=Super_Customer
-#     # obj
-#     # obj
-#     pass
+elif enter == 3:
+
+    super_Customer = Super_Customer()
+    username= input('Enter Your username: ')
+    password = input('Enter Your Password: ')
+    super_Customer.login(username, password)
+    process = int(input('choose from 1-3  \n 1-Deposit \n 2-Withdraw \n 3-Show Balance'))
+    if process == 1 :
+        deposit = float(input("Write The Deposit Amount Please : "))
+        taxes = str(input("if agree about 29% input yes , others no  : "))
+        super_Customer.deposit_amount(deposit,taxes)
+        super_Customer.show_balance()
+
+    elif process == 2 :
+        withdraw = int(input("Write The Withdraw Amount Please : "))
+        super_Customer.withdraw_amount(withdraw)
+        super_Customer.show_balance()
+
+    elif process == 3:
+        super_Customer.show_balance()
+
+
+
+
 elif enter == 4:
     customer = Customer()
     username = input('Enter Your username: ')
