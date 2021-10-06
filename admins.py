@@ -54,7 +54,6 @@ class Admin(ProgramUser):                 #inhert from Prgram_User loin/register
           print("USER DOESN'T EXIST")
 
       if username == self.AccData [0] and self.AccData[2]=='accountant': #check if username exist and accountant
-            
             remove(f'{username}.txt')
-            print('customer successfly removed!')
+            print(' Accountats removed!')
       
