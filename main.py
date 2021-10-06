@@ -12,6 +12,21 @@ if enter == 1:
     password = input('Enter Your Password : ')
     admin.login(username, password)
 
+    choice = int(input(f"hello {username} we hope you doing will \n -if you want to create a new Accountant account please press 1 \n -if you wamt you want to display all the accounts you have created pleas press 2 \n -if you want to delete any accounts please press 3 \n" ))
+    if choice == 1:
+        Accountantname = input('Enter Accountant Username : ')
+        Accountantpass = input('Enter Accountant Password : ')
+        admin.create(Accountantname, password)
+
+    elif choice == 2:
+        admin.display()
+
+    elif choice == 3:
+        Accountantname = input('Enter Accountant Username : ')
+        admin.delete(Accountantname)
+
+    else :
+        print ('Invalid Input')
 
 
 #     pass
