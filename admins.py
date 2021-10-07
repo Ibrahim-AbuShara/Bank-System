@@ -10,8 +10,8 @@ class Admin(ProgramUser):                 #inhert from Prgram_User loin/register
     Admin.id += 1 
 
 
-  def login (self, username, password):
-      super().login(username, password)   # inherit from program_user
+  def login (self, username, password, role):
+      super().login(username, password,role)   # inherit from program_user
       if self.AccData[2]!='admin':        # check if role is admin
           exit()
 

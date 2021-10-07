@@ -1,5 +1,5 @@
 class ProgramUser:
-
+    
     def __init__(self):
         self.AccData = []          # list for passing (user_name & password & role) from/to  files
         self.logged = False        # login default condition
@@ -21,7 +21,8 @@ class ProgramUser:
         else:
             print("Process Failed")                    # user name & password are not accepted
 
-    def login(self, username, password):
+    def login(self, username, password,role):
+        dict={1:'admin',2:'accountant',3:'super customer',4:'customer'} #to check if user role is the same role in data base
         try:
             with open(f"{username}.txt", "r") as f:  # search for file with this name (exception if file doesn't exist)
                 details = f.read()                   # reading name & pass & role
@@ -29,7 +30,7 @@ class ProgramUser:
             print("File Doesn't Exist .. ")
             exit()
         self.AccData = details.split("\n")   # using split to get the list back
-        if password == self.AccData[1]:      # remember password at loc 1
+        if password == self.AccData[1] and str(dict[role])==self.AccData[2]:      # remember password at loc 1
             self.logged = True               # if the password is correct then the flag now true
         if self.logged:
             print(f"{username} logged in as {self.AccData[2]}") # remember role at loc 2
