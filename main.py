@@ -3,8 +3,27 @@ from admins import Admin
 from program_user import ProgramUser
 from customers import Customer
 from super_customer import Super_Customer
+from termcolor import colored
 
-enter = int(input('chose from 1-4 \n 1-admin \n 2-accountat \n 3-super customer \n 4-customer \n > '))
+
+
+print(colored("""\
+                                 _._._                       _._._
+                                _|   |_                     _|   |_
+                                | ... |_._._._._._._._._._._| ... |
+                                | ||| |  o  BANK System  o  | ||| |
+                                |     |                     |     |
+                           ())  |[-|-]| [-|-]  [-|-]  [-|-] |[-|-]|  ())
+                          (())) |     |---------------------|     | (()))
+                         (())())|     |                     |     |(())())
+                         (()))()|[-|-]|  :::   .--.   :::   |[-|-]|(()))()
+                         ()))(()|     | |~|~|  |_|_|  |~|~| |     |()))(()
+                            ||  |_____|_|_|_|__|_|_|__|_|_|_|_____|  ||
+                         ~ ~^^ @@@@@@@@@@@@@@/=======\@@@@@@@@@@@@@@ ^^~ ~
+                             ^~^~                                ~^~^
+""",'red'),'\n')
+print (colored('Hello please tell us who are you:- ','green'))
+enter = int(input(' 1-admin \n 2-accountat \n 3-super customer \n 4-customer \n > '))
 if enter == 1:
 
     admin=Admin()
